@@ -11,29 +11,25 @@
 
   <h2>Before you start exploring our blog, please register:</h2>
 
-  <form>
+  <form action="/" method="POST" role="form">
     <div class="form-group">
       <label for="exampleInputPassword1">Username</label>
-      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your future username">
+      <input value=" <%= @c.name %> " name="client[name]" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your username">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Username</label>
-      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your number phone">
+      <label for="exampleInputPassword1">Phone</label>
+      <input value=" <%= @c.phone %> " name="client[phone]" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your number phone">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input name=" client[email] " type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
+      <input value=" <%= @c.mail %> " name=" client[mail] " type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <input value=" <%= @c.password %> " name="client[password]" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
     </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Log up</button>
   </form>
 </body>
 </html>

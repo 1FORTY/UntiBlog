@@ -6,14 +6,20 @@ require 'sinatra/activerecord'
 
 set :database, {adapter: 'sqlite3', database: 'untiblog'}
 
-class Client
+class Client < ActiveRecord::Base
 
 end
 
 get '/' do
+  @c = Client.new
+
 	erb :index
 end
 
 post '/' do
-  @client = Client.new params[:client]
+  @c = Client.new params[:client]
+  @c.save
+
+
+  erb 'Спасибо за регистрацию'
 end
