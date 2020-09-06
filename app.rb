@@ -13,3 +13,7 @@ end
 get '/' do
 	erb :index
 end
+
+post '/' do
+  @client = Client.new params[:client]
+end
