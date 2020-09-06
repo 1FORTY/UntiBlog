@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_145104) do
     t.text "name"
     t.text "phone"
     t.text "mail"
+    t.text "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
