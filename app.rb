@@ -21,9 +21,13 @@ end
 post '/' do
   @c = Client.new params[:client]
   if @c.save
-    erb 'Спасибо за регистрацию'
+    erb 'Спасибо за регистрацию, чтобы перейти на главную страницу нажмите на эту ссылку: <a href="/posts">redirect to main page</a>'
   else
     @error = @c.errors.full_messages.first
     erb :index
   end
+end
+
+get '/posts' do
+  erb :posts
 end
