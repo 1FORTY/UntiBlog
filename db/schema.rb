@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_152429) do
+ActiveRecord::Schema.define(version: 2020_09_08_152445) do
 
   create_table "clients", force: :cascade do |t|
     t.text "name"
     t.text "phone"
     t.text "mail"
     t.text "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "post_messsage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
