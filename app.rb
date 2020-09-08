@@ -7,7 +7,9 @@ require 'sinatra/activerecord'
 set :database, {adapter: 'sqlite3', database: 'untiblog'}
 
 class Client < ActiveRecord::Base
-
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :password, presence: true
 end
 
 get '/' do
@@ -18,8 +20,10 @@ end
 
 post '/' do
   @c = Client.new params[:client]
-  @c.save
-
-
-  erb 'Спасибо за регистрацию'
+  if @c.save
+    erb 'Спасибо за регистрацию'
+  else
+    @error = @c.errors.full_messages.first
+    erb :index
+  end
 end
