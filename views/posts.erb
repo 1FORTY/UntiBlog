@@ -4,9 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>UntiBlog</title>
 </head>
 <body>
+  <h2>Last 10 posts:</h2>
 
+  <form action="/post" method="POST">
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Message</label>
+      <textarea name="message_post" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your text's post"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add post</button>
+  </form>
 </body>
 </html>

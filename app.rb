@@ -12,6 +12,10 @@ class Client < ActiveRecord::Base
   validates :password, presence: true
 end
 
+class Post < ActiveRecord::Base
+
+end
+
 get '/' do
   @c = Client.new
 
@@ -20,7 +24,7 @@ end
 
 post '/' do
   @c = Client.new params[:client]
-  if @c.save
+  if @c.save == true
     erb 'Спасибо за регистрацию, чтобы перейти на главную страницу нажмите на эту ссылку: <a href="/posts">redirect to main page</a>'
   else
     @error = @c.errors.full_messages.first
@@ -29,5 +33,9 @@ post '/' do
 end
 
 get '/posts' do
+  erb :posts
+end
+
+post '/posts' do
   erb :posts
 end
