@@ -33,11 +33,14 @@ post '/' do
 end
 
 get '/post' do
+  @posts = Post.order 'created_at DESC'
+
   erb :posts
 end
 
 post '/post' do
   @posts = Post.new params[:post]
-  @posts.save
-  erb :posts
+  if @posts.save == true
+    redirect 'post'
+  end
 end

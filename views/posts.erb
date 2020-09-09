@@ -7,7 +7,16 @@
   <title>UntiBlog</title>
 </head>
 <body>
-  <h2>Last 10 posts:</h2>
+  <h2>Last posts:</h2>
+
+  <% @posts.each do |post| %>
+    <p>
+      <%= post.post_messsage %> <br> <br>
+
+      <%= post.created_at %>
+    </p>
+    <hr>
+  <% end %>
 
   <form action="/post" method="POST">
 
