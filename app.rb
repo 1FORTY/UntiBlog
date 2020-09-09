@@ -13,7 +13,7 @@ class Client < ActiveRecord::Base
 end
 
 class Post < ActiveRecord::Base
-
+  validates :post_messsage, presence: true, length: { minimum: 10 }
 end
 
 get '/' do
@@ -40,7 +40,11 @@ end
 
 post '/post' do
   @posts = Post.new params[:post]
-  if @posts.save == true
-    redirect 'post'
-  end
+  @posts.save
+
+  redirect 'post'
+end
+
+get '/comment/:post_id' do
+  erb :comment
 end

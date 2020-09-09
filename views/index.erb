@@ -14,15 +14,15 @@
   <form action="/" method="POST" role="form">
     <div class="form-group">
       <label for="exampleInputPassword1">Username</label>
-      <input value=" <%= @c.name %> " name="client[name]" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your username">
+      <input value="<%= @c.name %>" name="client[name]" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your username">
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Phone</label>
-      <input value=" <%= @c.phone %> " name="client[phone]" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your number phone">
+      <input value="<%= @c.phone %>" name="client[phone]" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your number phone">
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input value=" <%= @c.password %> " name="client[password]" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
+      <input value="<%= @c.password %>" name="client[password]" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
     </div>
     <button type="submit" class="btn btn-primary">Log up</button>
   </form>

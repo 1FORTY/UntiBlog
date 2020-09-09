@@ -7,24 +7,27 @@
   <title>UntiBlog</title>
 </head>
 <body>
-  <h2>Last posts:</h2>
-
-  <% @posts.each do |post| %>
-    <p>
-      <%= post.post_messsage %> <br> <br>
-
-      <%= post.created_at %>
-    </p>
-    <hr>
-  <% end %>
 
   <form action="/post" method="POST">
 
     <div class="form-group">
-      <label for="exampleInputPassword1">Message</label>
+      <label for="exampleInputPassword1">Минимальное количество символов 10</label>
       <textarea name="post[post_messsage]" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your text's post"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Add post</button>
   </form>
+
+  <h2>Last posts:</h2>
+
+  <% @posts.each do |post| %>
+    <p>
+      <%= post.post_messsage %> <br>
+      <a href="/comment/<%= post.id %>">Comments</a>
+      <br>
+
+      Created at: <%= post.created_at %>
+    </p>
+    <hr>
+  <% end %>
 </body>
 </html>
