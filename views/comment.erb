@@ -9,7 +9,16 @@
 <body>
   <h2>Post's comments <%= @post_id %>:</h2>
 
-  <%= @post.post_messsage %>
+  <%= @post.post_messsage %> <br>
 
+  <hr>
+
+  <form action="/comment/<%= @post_id %>" method="POST" role="form">
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Comment</label>
+      <textarea name="comment[message]" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter message"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add comment</button>
+  </form>
 </body>
 </html>

@@ -16,6 +16,10 @@ class Post < ActiveRecord::Base
   validates :post_messsage, presence: true, length: { minimum: 10 }
 end
 
+class Comment < ActiveRecord::Base
+
+end
+
 get '/' do
   @c = Client.new
 
@@ -48,6 +52,17 @@ end
 get '/comment/:id' do
   @post_id = params[:id]
   @post = Post.find(@post_id)
+  @comments = Comment.find_by post_id: @post_id
+
+  erb :comment
+end
+
+post '/comment/:id' do
+  @post_id = params[:id]
+  @post = Post.find(@post_id)
+
+  @comments = Comment.new params[:comment]
+  @comments.save
 
   erb :comment
 end
