@@ -45,6 +45,9 @@ post '/post' do
   redirect 'post'
 end
 
-get '/comment/:post_id' do
+get '/comment/:id' do
+  @post_id = params[:id]
+  @post = Post.find(@post_id)
+
   erb :comment
 end
