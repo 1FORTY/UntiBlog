@@ -62,6 +62,7 @@ post '/comment/:id' do
   @post = Post.find(@post_id)
 
   @comments = Comment.new params[:comment]
+    @comments.post_id = @post_id
   @comments.save
 
   erb :comment
