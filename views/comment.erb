@@ -7,7 +7,7 @@
   <title>UntiBlog</title>
 </head>
 <body>
-  <h2>Post's comments <%= @post_id %>:</h2>
+  <h2>Post's comments <%= @post_id %> <%= @comments.message %>:</h2>
 
   <%= @post.post_messsage %> <br>
 
@@ -20,5 +20,11 @@
     </div>
     <button type="submit" class="btn btn-primary">Add comment</button>
   </form>
+
+  <% @comments.each do |comment| %>
+    <p>
+      <%= comment.message %>
+    </p>
+  <% end %>
 </body>
 </html>

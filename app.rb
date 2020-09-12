@@ -52,7 +52,8 @@ end
 get '/comment/:id' do
   @post_id = params[:id]
   @post = Post.find(@post_id)
-  @comments = Comment.find_by post_id: @post_id
+  @comments = Comment.where("post_id = ?", @post_id.to_i)
+  #Client.where("orders_count = ?", params[:orders])
 
   erb :comment
 end

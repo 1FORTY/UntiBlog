@@ -14,6 +14,10 @@ There may be shortcomings in the app, as it was created in order to practice and
 Guide by app:
 To run UntiBlog locally, you need to have a Ruby version of at least 2.7.0 on your computer(it will probably work on other versions, but the application was made on this version of the language), then go to the application folder and run the main file with the command "ruby app.rb" or run it via RubyMine, using the green button to collapse, prematurely specifying the path for the file you are going to work with, i.e. app. rb
 
+Во время разработки столкнулся с проблемой, что я ещё не столько знаю, а именно ActiveRecord и поэтому к сожалению комментарии пока что не работают, может быть потом исправлю
+=================================================
+During development, I encountered a problem that I don't know so much yet, namely ActiveRecord, and so unfortunately the comments don't work yet, maybe I'll fix it later
+
 Спасибо за использование приложения, а желаю вам удачи в его использовании
 =================================================
 Thank you for using the app, and I wish you good luck in using it
