@@ -68,3 +68,10 @@ post '/comment/:id' do
 
   erb :comment
 end
+
+get '/account/:id' do
+  @acc_id = params[:id]
+  @client
+
+  erb :account
+end
