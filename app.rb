@@ -52,26 +52,20 @@ end
 get '/comment/:id' do
   @post_id = params[:id]
   @post = Post.find(@post_id)
-  @comments = Comment.where("post_id = ?", @post_id.to_i)
-  #Client.where("orders_count = ?", params[:orders])
+  @comments = Comment.where(post_id: @post_id).take
+  @c_i = @comments.message
 
   erb :comment
 end
 
-post '/comment/:id' do
-  @post_id = params[:id]
-  @post = Post.find(@post_id)
 
-  @comments = Comment.new params[:comment]
-    @comments.post_id = @post_id
-  @comments.save
+# It's Example!!!! Make that's 
+# User.find_each do |user|
+#   NewsMailer.weekly(user).deliver_now
+# end
 
-  erb :comment
-end
-
-get '/account/:id' do
-  @acc_id = params[:id]
-  @client
-
-  erb :account
-end
+# <% @comments.each do |comment| %>
+#     <p>
+#       <%= comment.message %>
+#     </p>
+#   <% end %>

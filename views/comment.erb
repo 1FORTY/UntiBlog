@@ -7,7 +7,7 @@
   <title>UntiBlog</title>
 </head>
 <body>
-  <h2>Post's comments <%= @post_id %> <%= @comments.message %>:</h2>
+  <!-- <h2>Post's comments <%= @post_id %> <%= @post.post_messsage %>:</h2>
 
   <%= @post.post_messsage %> <br>
 
@@ -19,12 +19,10 @@
       <textarea name="comment[message]" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter message"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Add comment</button>
-  </form>
+  </form> -->
 
-  <% @comments.each do |comment| %>
-    <p>
-      <%= comment.message %>
-    </p>
-  <% end %>
+  <h2><% @comments.each do |i|%></h2>
+    <%= i.message %>
+  <% end %> 
 </body>
 </html>
