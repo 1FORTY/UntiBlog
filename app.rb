@@ -52,20 +52,17 @@ end
 get '/comment/:id' do
   @post_id = params[:id]
   @post = Post.find(@post_id)
-  @comments = Comment.where(post_id: @post_id).take
-  @c_i = @comments.message
+  @c = Comment.all
+
+  @date = []
+  @c.each do |d|
+    @date.push d.created_at.strftime("%Y-%m-%d %H:%M:%S")
+  end
+
+  @comments = []
+  @c.find_each do |user|
+    @comments.push user.message
+  end
 
   erb :comment
 end
-
-
-# It's Example!!!! Make that's 
-# User.find_each do |user|
-#   NewsMailer.weekly(user).deliver_now
-# end
-
-# <% @comments.each do |comment| %>
-#     <p>
-#       <%= comment.message %>
-#     </p>
-#   <% end %>
