@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
 end
 
 class Comment < ActiveRecord::Base
-
+  belongs_to :post
 end
 
 get '/' do
@@ -61,8 +61,29 @@ get '/comment/:id' do
 
   @comments = []
   @c.find_each do |user|
-    @comments.push user.message
+    @comments.push user.message if user.post_id == @post.id
   end
+
+  erb :comment
+end
+
+post '/comment/:id' do
+  @post_id = params[:id]
+  @post = Post.find(@post_id)
+  @c = Comment.all
+
+  @comments = []
+  @c.find_each do |user|
+    @comments.push user.message if user.post_id == @post.id
+  end
+
+  @date = []
+  @c.each do |d|
+    @date.push d.created_at.strftime("%Y-%m-%d %H:%M:%S")
+  end
+
+  c = Comment.new params[:comment]
+  c.save
 
   erb :comment
 end

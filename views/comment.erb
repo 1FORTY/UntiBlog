@@ -18,6 +18,11 @@
       <label for="exampleFormControlTextarea1">Comment</label>
       <textarea name="comment[message]" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter message"></textarea>
     </div>
+
+    <div>
+      <input type="hidden" name="comment[post_id]" value="<%= @post_id %>">
+    </div>
+
     <button type="submit" class="btn btn-primary">Add comment</button>
   </form>
 
